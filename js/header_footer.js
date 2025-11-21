@@ -25,16 +25,25 @@ function initBurgerMenu() {
     const navMenu = document.getElementById('navMenu');
 
     if (burgerBtn && navMenu) {
-        burgerBtn.addEventListener('click', () => {
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             burgerBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        document.querySelectorAll('.menu a').forEach(link => {
+        const links = navMenu.querySelectorAll('a');
+        links.forEach(link => {
             link.addEventListener('click', () => {
                 burgerBtn.classList.remove('active');
                 navMenu.classList.remove('active');
             });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
+                burgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
         });
     }
 }

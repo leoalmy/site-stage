@@ -1,8 +1,7 @@
-// Configuration
 const CONFIG = {
-    folder: 'view/',   // Ton dossier où sont les fichiers
-    extension: '.html', // L'extension des fichiers
-    defaultPage: 'home' // La page d'accueil par défaut
+    folder: 'view/',
+    extension: '.html',
+    defaultPage: 'home'
 };
 
 function router() {
@@ -15,6 +14,22 @@ function router() {
     const filePath = CONFIG.folder + pageName + CONFIG.extension;
 
     loadPage(filePath, pageName);
+
+    updateMenuState(); 
+}
+
+function updateMenuState() {
+    const currentHash = window.location.hash || '#' + CONFIG.defaultPage;
+
+    const navLinks = document.querySelectorAll('header .nav .nav-link');
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+
+        if (link.getAttribute('href') === currentHash) {
+            link.classList.add('active');
+        }
+    });
 }
 
 function loadPage(url, pageNameForError) {
@@ -41,8 +56,7 @@ function loadPage(url, pageNameForError) {
         })
         .catch(error => {
             console.error("Erreur chargement:", error);
-            
-            let displayName = pageNameForError.charAt(0).toUpperCase() + pageNameForError.slice(1);
+            let displayName = pageNameForError ? pageNameForError.charAt(0).toUpperCase() + pageNameForError.slice(1) : "Inconnue";
 
             mainContent.innerHTML = `
                 <div style="text-align:center; padding:80px 20px;">
@@ -55,6 +69,5 @@ function loadPage(url, pageNameForError) {
         });
 }
 
-// Écouteurs
 window.addEventListener('DOMContentLoaded', router);
 window.addEventListener('hashchange', router);
