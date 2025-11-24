@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const includes = document.querySelectorAll('[data-include]');
     
     includes.forEach(el => {
-        const file = el.getAttribute('data-include');
+        const fileName = el.getAttribute('data-include');
+        const file = `view/${fileName}.html`;
         
         fetch(file)
             .then(resp => {
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 el.innerHTML = data;
 
-                if (file.includes('header.html')) {
+                if (fileName.includes('header')) {
                     initBurgerMenu();
                 }
             })
