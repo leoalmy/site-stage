@@ -34,19 +34,33 @@ function router() {
 function updateMenuState() {
     const currentHash = window.location.hash || '#' + CONFIG.defaultPage;
 
-    const navLinks = document.querySelectorAll('header .nav .nav-link');
-    const mobileTitle = document.getElementById('mobileTitle');
-
-    navLinks.forEach(link => {
+    const allLinks = document.querySelectorAll('header .nav-link, header .dropdown-item');
+    allLinks.forEach(link => {
         link.classList.remove('active');
+        if(link.classList.contains('dropdown-toggle')) {
+             link.classList.remove('active');
+        }
     });
-    const activeLink = document.querySelector(`header .nav .nav-link[href="${currentHash}"]`);
+
+    const activeLink = document.querySelector(`#navMenu a[href="${currentHash}"]`);
 
     if (activeLink) {
         activeLink.classList.add('active');
 
+        const mobileTitle = document.getElementById('mobileTitle');
         if (mobileTitle) {
             mobileTitle.innerText = activeLink.innerText;
+        }
+
+        if (activeLink.classList.contains('dropdown-item')) {
+            const parentDropdown = activeLink.closest('.nav-item.dropdown');
+            
+            if (parentDropdown) {
+                const parentToggle = parentDropdown.querySelector('.dropdown-toggle');
+                if (parentToggle) {
+                    parentToggle.classList.add('active');
+                }
+            }
         }
     }
 }

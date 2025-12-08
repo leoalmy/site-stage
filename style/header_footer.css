@@ -1,4 +1,74 @@
 /* =========================================
+   VARIABLES & COLORS
+   ========================================= */
+:root {
+    --primary-color: #D63085;
+    --text-dark: #333;
+    --text-light: #666;
+    --text-lighter: #777;
+    --border-light: #e1e1e1;
+    --background-light: #f9f9f9;
+    --white: #fff;
+    --font-size-base: 1rem;
+    --font-size-small: 0.95rem;
+    --font-size-nav: 1rem;
+}
+
+/* =========================================
+   1. HEADER & LOGO
+   ========================================= */
+
+header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 15px 20px;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    position: static;
+    transform: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #D63085;
+    text-decoration: none;
+    letter-spacing: 2px;
+    
+    position: absolute;
+    left: 40px; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo img {
+    height: 85px;
+    width: auto;
+    display: block;
+}
+
+.logo-pc {
+    display: block;
+}
+
+.logo-mobile {
+    display: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+/* =========================================
    1. HEADER & NAVIGATION (DESKTOP)
    ========================================= */
 
@@ -56,46 +126,77 @@ header .nav .nav-link[href="#home"].active {
 }
 
 /* =========================================
-   LOGO HEADER
+   3. DROPDOWN MENU
    ========================================= */
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #D63085;
-    text-decoration: none;
-    letter-spacing: 2px;
-    
+.dropdown-menu {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    margin-top: 10px !important;
+    background-color: var(--white);
+    min-width: 240px;
+}
+
+.dropdown-menu::before {
+    content: '';
     position: absolute;
-    left: 40px; 
-    top: 50%;
-    transform: translateY(-50%);
+    top: -8px;
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    background: var(--white);
+    transform: rotate(45deg);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.logo img {
-    height: 85px;
-    width: auto;
-    display: block;
+.dropdown-item {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-light);
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    font-size: var(--font-size-small);
+    font-weight: 500;
 }
 
-.logo-mobile {
-    display: none;
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: rgba(214, 48, 133, 0.08);
+    color: var(--primary-color);
+    padding-left: 22px;
 }
-.logo-pc {
-    display: block;
+
+.dropdown-item.active {
+    color: var(--primary-color);
+    background-color: rgba(214, 48, 133, 0.15);
+    font-weight: 700;
+}
+
+.nav-link.dropdown-toggle::after {
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: transform 0.3s;
+}
+
+.nav-link.dropdown-toggle.show::after {
+    transform: rotate(180deg);
+}
+
+.nav-link.dropdown-toggle.active {
+    color: var(--primary-color) !important;
+    background-color: rgba(214, 48, 133, 0.1);
 }
 
 /* =========================================
-   2. BOUTON BURGER (Caché sur PC)
+   4. BURGER MENU
    ========================================= */
 
 .burger {
     display: none;
     cursor: pointer;
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 1001;
 }
 
@@ -105,148 +206,177 @@ header .nav .nav-link[href="#home"].active {
     height: 3px;
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
-    background-color: #333;
+    background-color: var(--text-dark);
+    border-radius: 3px;
+}
+
+.burger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* =========================================
-   3. FOOTER
+   5. FOOTER
    ========================================= */
 
 .footer {
-    background-color: #f9f9f9;
-    color: #555;
-    padding: 40px 20px 20px;
-    border-top: 1px solid #e1e1e1;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    padding: 50px 20px 30px;
+    border-top: 1px solid var(--border-light);
     margin-top: auto;
 }
 
 .footer-content {
     display: flex;
     justify-content: center;
-    gap: 80px;
-    max-width: 1000px;
-    margin: 0 auto 40px auto;
+    gap: 100px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
     text-align: center;
 }
 
 .footer-group h3 {
-    font-size: 1.1rem;
-    color: #D63085;
+    font-size: 1.15rem;
+    color: var(--primary-color);
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.footer-nav-primary {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.footer-nav-soins {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; 
+    text-align: left;
 }
 
 .footer-nav-primary a,
 .footer-nav-soins a {
     text-decoration: none;
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--text-light);
+    font-size: var(--font-size-small);
     transition: color 0.3s ease;
-    margin: 0 10px;
+    margin: 0 !important;
     display: inline-block;
 }
 
 .footer-nav-primary a:hover,
 .footer-nav-soins a:hover {
-    color: #D63085;
+    color: var(--primary-color);
 }
 
 .footer hr {
     border: 0;
     height: 1px;
-    background: #D63085;
+    background: var(--primary-color);
     opacity: 0.3;
     width: 100%;
-    max-width: 1000px;
-    margin: 20px auto;
+    max-width: 1200px;
+    margin: 30px auto;
 }
 
 .footer .copyright {
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #888;
     margin-top: 20px;
 }
 
 /* =========================================
-    SOCIAL ICONS
-    ========================================= */
+   6. SOCIAL ICONS
+   ========================================= */
+
 ul.social-icons {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 12px;
 }
 
 .social-icons .icon-content {
-  margin: 0 6px;
-  position: relative;
+    margin: 0;
+    position: relative;
 }
 
 .social-icons .icon-content .tooltip {
-  z-index: 10;
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  padding: 5px 8px;
-  border-radius: 5px;
-  opacity: 0;
-  visibility: hidden;
-  font-size: 12px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
+    z-index: 10;
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--white);
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .social-icons .icon-content:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
-  top: -45px;
+    opacity: 1;
+    visibility: visible;
+    top: -45px;
 }
 
 .social-icons .icon-content a {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-    width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: #666;
-  background-color: #f9f9f9;
-  transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: var(--text-light);
+    background-color: var(--background-light);
+    transition: all 0.3s ease-in-out;
 }
 
 .social-icons .icon-content a:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-  color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    color: var(--white);
 }
 
 .social-icons .icon-content a svg {
-  position: relative;
-  z-index: 1;
-  width: 22px;
-  height: 22px;
+    position: relative;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
 }
 
 .social-icons .icon-content a .filled {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background-color: #000;
-  transition: all 0.3s ease-in-out;
-  border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
 }
 
 .social-icons .icon-content a:hover .filled {
-  height: 100%;
+    height: 100%;
 }
 
 .social-icons .icon-content a[data-social="facebook"] .filled,
@@ -256,48 +386,44 @@ ul.social-icons {
 
 .social-icons .icon-content a[data-social="instagram"] .filled,
 .social-icons .icon-content a[data-social="instagram"] ~ .tooltip {
-    background: linear-gradient(
-        45deg,
-        #405de6,
-        #5b51db,
-        #b33ab4,
-        #c135b4,
-        #e1306c,
-        #fd1f1f
-    );
-}
-
-/* ========================================= 
-   4. AVERTISSEMENT MÉDICAL
-   ========================================= */
-.medical-warning {
-    text-align: center;
-    font-size: 0.85rem;
-    color: #777;
-    max-width: 800px;
-    margin: 20px auto 10px auto;
-    padding: 0 20px;
-    font-style: italic;
-    line-height: 1.5;
-}
-
-.medical-warning strong {
-    color: #D63085;
-}
-
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
-    }
+    background: linear-gradient(45deg, #405de6, #5b51db, #b33ab4, #c135b4, #e1306c, #fd1f1f);
 }
 
 /* =========================================
-   5. RESPONSIVE HEADER (MOBILE & TABLETTE)
+   7. MEDICAL WARNING
    ========================================= */
 
-@media (max-width: 1026px) {
+.medical-warning {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-lighter);
+    max-width: 800px;
+    margin: 25px auto 15px auto;
+    padding: 0 20px;
+    font-style: italic;
+    line-height: 1.6;
+}
 
+.medical-warning strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* =========================================
+   8. RESPONSIVE - MOBILE & TABLET (800px max)
+   ========================================= */
+
+@media (max-width: 900px) {
+    .logo-pc {
+        display: none;
+    }
+
+}
+
+/* =========================================
+   8. RESPONSIVE - MOBILE & TABLET (800px max)
+   ========================================= */
+@media (max-width: 610px) {
     .logo-pc {
         display: none;
     }
@@ -391,6 +517,45 @@ ul.social-icons {
         color: #D63085 !important;
     }
 
+    .footer-content {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 20px; 
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-nav-primary {
+        display: flex;
+        flex-direction: column;
+        gap: 5px; 
+        align-items: center;
+    }
+
+    .footer-nav-soins {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px; 
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .footer-nav-soins a {
+        font-size: 0.85rem;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-group h3 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
     .social-icons .icon-content a .filled {
         height: 100% !important;
     }
@@ -405,28 +570,24 @@ ul.social-icons {
     }
 }
 
-@media (max-width: 1275px) {
-    .logo-pc {
-        display: none;
+/* =========================================
+   9. RESPONSIVE - TABLET (611px+)
+   ========================================= */
+
+@media (min-width: 611px) {
+    #navMenu .nav-item:nth-child(1) {
+        order: 2;
     }
-}
 
-@media (min-width: 1003px) {
-    /* =========================================
-       NAV ORDER (DESKTOP)
-       ========================================= */
+    #navMenu .nav-item:nth-child(2) {
+        order: 1;
+    }
 
-    #navMenu .nav-item:nth-child(1) { order: 4; }
+    #navMenu .nav-item:nth-child(3) {
+        order: 3;
+    }
 
-    #navMenu .nav-item:nth-child(2) { order: 1; }
-
-    #navMenu .nav-item:nth-child(3) { order: 2; }
-
-    #navMenu .nav-item:nth-child(4) { order: 3; }
-
-    #navMenu .nav-item:nth-child(5) { order: 5; }
-
-    #navMenu .nav-item:nth-child(6) { order: 6; }
-
-    #navMenu .nav-item:nth-child(7) { order: 7; }
+    #navMenu .nav-item:nth-child(4) {
+        order: 4;
+    }
 }
