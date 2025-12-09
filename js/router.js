@@ -42,9 +42,9 @@ function updateMenuState() {
         }
     });
 
-    const activeLink = document.querySelector(`#navMenu a[href="${currentHash}"]`);
+    const activeLinks = document.querySelectorAll(`#navMenu a[href="${currentHash}"]`);
 
-    if (activeLink) {
+    activeLinks.forEach(activeLink => {
         activeLink.classList.add('active');
 
         const mobileTitle = document.getElementById('mobileTitle');
@@ -62,7 +62,7 @@ function updateMenuState() {
                 }
             }
         }
-    }
+    });
 }
 
 //Fonction de chargement du CSS du contenu

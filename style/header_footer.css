@@ -410,34 +410,45 @@ ul.social-icons {
 }
 
 /* =========================================
-   8. RESPONSIVE - MOBILE & TABLET (800px max)
+   8. RESPONSIVE - MOBILE & TABLET (900px max)
    ========================================= */
 
 @media (max-width: 900px) {
     .logo-pc {
         display: none;
     }
-
 }
 
 /* =========================================
-   8. RESPONSIVE - MOBILE & TABLET (800px max)
+   9. RESPONSIVE - TABLET/PC (611px+)
    ========================================= */
-@media (max-width: 610px) {
-    .logo-pc {
-        display: none;
+
+@media (min-width: 611px) {
+    #navMenu .nav-item.d-md-none {
+        display: none !important;
     }
-    
+
+    #navMenu .nav-item.dropdown {
+        display: block !important;
+    }
+
+    #navMenu .nav-item:nth-child(2) { order: 1; }
+    #navMenu .nav-item:nth-child(1) { order: 2; }
+    #navMenu .nav-item.dropdown { order: 3; }
+    #navMenu .nav-item:nth-child(4) { order: 999; }
+}
+
+/* =========================================
+   8. RESPONSIVE - MOBILE & TABLET (610px max)
+   ========================================= */
+
+@media (max-width: 610px) {
     .logo-mobile {
         display: block;
         position: static;
         transform: none;
         text-align: center;
         margin: 0 auto; 
-    }
-
-    #navMenu .nav-link.active {
-        display: none;
     }
     
     header {
@@ -460,46 +471,24 @@ ul.social-icons {
         left: 0;
         width: 100%;
         background-color: #fff;
-        
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-out;
-        
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         z-index: 999;
-        
         padding: 0; 
         margin: 0;
     }
 
     #navMenu.active {
-        max-height: 500px;
-        border-bottom: 1px solid #ddd;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
     }
 
     header .nav .nav-item {
         width: 100%;
         display: block;
         text-align: center;
-    }
-
-    header .nav .nav-link {
-        border-radius: 0;
-        margin: 0;
-        padding: 15px 0;
-        text-align: center;
-        border: none;
-        border-bottom: 1px solid #f0f0f0;
-        background-color: transparent !important;
-        color: #555 !important;
-        box-shadow: none;
-    }
-
-    header .nav .nav-link.active {
-        background-color: transparent !important;
-        color: #D63085 !important;
-        font-weight: bold;
-        border-bottom: 1px solid #f0f0f0;
     }
 
     header .nav .nav-link:last-child {
@@ -517,6 +506,43 @@ ul.social-icons {
         color: #D63085 !important;
     }
 
+    #navMenu .nav-item .nav-link {
+        color: #555 !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        font-size: 0.9rem !important;
+        letter-spacing: 1px;
+        border: none;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        padding: 15px 0;
+        margin: 0;
+    }
+
+    #navMenu .nav-item .nav-link.active {
+        display: none !important;
+    }
+
+    #navMenu .nav-item a[href="#magnetisme"] {
+        border-top: 1px solid #D63085 !important;
+    }
+
+    #navMenu .nav-item a[href="#magnetisme"].active {
+        display: block !important;
+        font-size: 0 !important;
+        height: 0 !important;
+        border-bottom: none !important;
+        border-top: 1px solid #D63085 !important;
+    }
+
+    #navMenu .nav-item .nav-link:active,
+    #navMenu .nav-item .nav-link:focus {
+        color: #D63085 !important;
+        background: transparent !important;
+    }
+}
+
+@media (max-width: 660px) {
     .footer-content {
         display: flex;
         flex-direction: column !important;
@@ -567,27 +593,5 @@ ul.social-icons {
 
     .social-icons .icon-content .tooltip {
         display: none !important;
-    }
-}
-
-/* =========================================
-   9. RESPONSIVE - TABLET (611px+)
-   ========================================= */
-
-@media (min-width: 611px) {
-    #navMenu .nav-item:nth-child(1) {
-        order: 2;
-    }
-
-    #navMenu .nav-item:nth-child(2) {
-        order: 1;
-    }
-
-    #navMenu .nav-item:nth-child(3) {
-        order: 3;
-    }
-
-    #navMenu .nav-item:nth-child(4) {
-        order: 4;
     }
 }

@@ -33,9 +33,30 @@ function initBurgerMenu() {
             navMenu.classList.toggle('active');
         });
 
-        const links = navMenu.querySelectorAll('a');
+        // Gérer les clics sur les liens (sauf dropdown)
+        const links = navMenu.querySelectorAll('a:not(.dropdown-toggle)');
         links.forEach(link => {
             link.addEventListener('click', () => {
+                burgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Gérer le dropdown sur mobile
+        const dropdownToggle = navMenu.querySelector('.dropdown-toggle');
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', (e) => {
+                // Sur mobile, prevent la fermeture et laisse Bootstrap gérer le dropdown
+                if (window.innerWidth <= 610) {
+                    e.stopPropagation();
+                }
+            });
+        }
+
+        // Gérer les clics sur les items du dropdown
+        const dropdownItems = navMenu.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
                 burgerBtn.classList.remove('active');
                 navMenu.classList.remove('active');
             });
