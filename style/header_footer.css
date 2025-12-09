@@ -439,7 +439,7 @@ ul.social-icons {
 }
 
 /* =========================================
-   8. RESPONSIVE - MOBILE & TABLET (610px max)
+   10. RESPONSIVE - MOBILE & TABLET (610px max)
    ========================================= */
 
 @media (max-width: 610px) {
@@ -525,6 +525,7 @@ ul.social-icons {
 
     #navMenu .nav-item a[href="#magnetisme"] {
         border-top: 1px solid #D63085 !important;
+        border-radius: 0 !important;
     }
 
     #navMenu .nav-item a[href="#magnetisme"].active {
@@ -533,6 +534,7 @@ ul.social-icons {
         height: 0 !important;
         border-bottom: none !important;
         border-top: 1px solid #D63085 !important;
+        border-radius: 0 !important;
     }
 
     #navMenu .nav-item .nav-link:active,
