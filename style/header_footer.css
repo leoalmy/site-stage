@@ -429,10 +429,10 @@ ul.social-icons {
 }
 
 /* =========================================
-   9. RESPONSIVE - TABLET/PC (611px+)
+   9. RESPONSIVE - TABLET/PC (655px+)
    ========================================= */
 
-@media (min-width: 611px) {
+@media (min-width: 655px) {
     #navMenu .nav-item.d-md-none {
         display: none !important;
     }
@@ -448,10 +448,10 @@ ul.social-icons {
 }
 
 /* =========================================
-   10. RESPONSIVE - MOBILE & TABLET (610px max)
+   10. RESPONSIVE - MOBILE & TABLET (654px max)
    ========================================= */
 
-@media (max-width: 610px) {
+@media (max-width: 654px) {
     .logo-mobile {
         display: block;
         position: static;
@@ -600,6 +600,10 @@ ul.social-icons {
     .social-icons .icon-content a {
         color: white !important;
         box-shadow: none;
+    }
+
+    .social-icons .icon-content a[data-social="pagesjaunes"] svg{
+        color: black !important;
     }
 
     .social-icons .icon-content .tooltip {

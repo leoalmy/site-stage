@@ -216,7 +216,7 @@
     .service-card p { font-size: 0.85rem; }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 504px) {
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
