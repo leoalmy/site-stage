@@ -48,6 +48,14 @@
 .hours-box h3 { font-size: 1.1rem; margin-bottom: 5px; color: #333; }
 .hours-box p { margin: 0; color: #555; }
 
+/* Icônes dans les boutons */
+.icon svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 /* Bouton WhatsApp */
 .btn-whatsapp {
     display: inline-flex;
@@ -61,12 +69,33 @@
     transition: transform 0.2s, box-shadow 0.2s;
     margin-top: 10px;
 }
-.btn-whatsapp .icon { margin-right: 8px; font-size: 1.2rem; }
 .btn-whatsapp:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
     color: white;
 }
+.btn-whatsapp svg { fill: #fff; }
+
+/* Bouton Pagesjaunes */
+.btn-pagesjaunes {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FFDE07;
+    color: black;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+}
+.btn-pagesjaunes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 222, 7, 0.4);
+    color: black;
+}
+.btn-pagesjaunes svg { fill: #000; }
+
 
 /* --- COLONNE FORMULAIRE --- */
 .contact-form-wrapper h2 { font-size: 1.5rem; color: #D63085; margin-bottom: 25px; }
@@ -92,7 +121,7 @@
     transition: all 0.3s;
 }
 
-/* Focus rose "Zen Harmonie" */
+/* Focus rose */
 .contact-form-wrapper input:focus,
 .contact-form-wrapper textarea:focus {
     outline: none;

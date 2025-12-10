@@ -389,6 +389,15 @@ ul.social-icons {
     background: linear-gradient(45deg, #405de6, #5b51db, #b33ab4, #c135b4, #e1306c, #fd1f1f);
 }
 
+.social-icons .icon-content a[data-social="pagesjaunes"] .filled,
+.social-icons .icon-content a[data-social="pagesjaunes"] ~ .tooltip {
+    background-color: #FFCC00;
+    color: #000000 !important;
+}
+
+.social-icons .icon-content a[data-social="pagesjaunes"]:hover { color: #000 !important; }
+.social-icons .icon-content a[data-social="pagesjaunes"] ~ .tooltip { color: #000; }
+
 /* =========================================
    7. MEDICAL WARNING
    ========================================= */
