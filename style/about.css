@@ -79,6 +79,76 @@
     font-size: 1rem;
 }
 
+/* Grille des diplômes */
+.diplomas-section {
+    background-color: #f9f9f9;
+}
+
+.diploma-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cadres un peu plus larges */
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.diploma-card {
+    background: white;
+    padding: 15px; /* Moins de padding pour laisser place à l'image */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Empêche l'image de dépasser si elle est trop grande */
+}
+
+.diploma-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(214, 48, 133, 0.15);
+    border-color: #D63085;
+}
+
+/* Gestion de l'image dans le cadre */
+.img-container {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour que tous les cadres soient alignés */
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #f0f0f0;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image remplit le cadre (peut couper un peu les bords) */
+    /* Si vous préférez voir le diplôme en entier quitte à avoir du blanc autour, remplacez 'cover' par 'contain' */
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* Petit effet de zoom sur l'image au survol */
+.diploma-card:hover .img-container img {
+    transform: scale(1.05);
+}
+
+.diploma-card h3 {
+    color: #333;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+/* Style pour les cartes sans images (icônes) */
+.diploma-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: block;
+}
+
 /* =========================================
    3. SECTION VALEURS
    ========================================= */
