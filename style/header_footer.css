@@ -419,10 +419,10 @@ ul.social-icons {
 }
 
 /* =========================================
-   8. RESPONSIVE - MOBILE ET TABLETTE (910px max)
+   8. RESPONSIVE - MOBILE ET TABLETTE (1020px max)
    ========================================= */
 
-@media (max-width: 910px) {
+@media (max-width: 1020px) {
     .logo-pc {
         display: none;
     }

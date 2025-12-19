@@ -75,7 +75,7 @@ function loadPageCSS(pageName) {
         oldLink.remove();
     }
     
-    const pagesToLoad = ['home', 'about', 'contact'];
+    const pagesToLoad = ['home', 'about', 'contact', 'tarifs'];
     if (!pagesToLoad.includes(pageName)) {
         return;
     }
